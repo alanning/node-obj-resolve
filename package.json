@@ -1,0 +1,27 @@
+{
+  "name": "obj-resolve",
+  "version": "1.0.0",
+  "description": "A convenience function to safely walk an object tree and get or set a field's value",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alanning/node-obj-resolve.git"
+  },
+  "keywords": [
+    "resolve"
+  ],
+  "author": "Adrian Lanning <alanning@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanning/node-obj-resolve/issues"
+  },
+  "homepage": "https://github.com/alanning/node-obj-resolve#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6"
+  }
+}
