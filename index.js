@@ -42,7 +42,9 @@ module.exports = function resolve (obj, path, value) {
       return value;
     } else {
       if (settingAValue) {
-        obj[k] = {}
+        if ('object' !== typeof obj[k]) {
+          obj[k] = {}
+        }
         obj = obj[k]
       } else {
         if (k in obj) {

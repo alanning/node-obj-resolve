@@ -28,7 +28,12 @@ var obj = {
       'qty' : 20
     }
   ],
-  'part4': {}
+  'part4': {},
+  'part5': {
+    'parent': {
+      'name': 'Kyle'
+    }
+  }
 };
 
 describe("resolve", function () {
@@ -121,10 +126,20 @@ describe("resolve", function () {
     var expected = "Mary",
         actual
 
-    actual = resolve(obj, 'part4.friend.parent.name', "Mary")
+    actual = resolve(obj, 'part4.friend.parent.name', expected)
     expect(actual).to.equal(expected);
 
     actual = resolve(obj, 'part4.friend.parent.name')
+    expect(actual).to.equal(expected);
+  });
+  it('should not overwrite existing sibling fields', function () {
+    var expected = "Kyle",
+        actual
+
+    actual = resolve(obj, 'part5.parent.age', 33)
+    expect(actual).to.equal(33);
+
+    actual = resolve(obj, 'part5.parent.name')
     expect(actual).to.equal(expected);
   });
   
