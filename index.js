@@ -26,21 +26,30 @@ module.exports = function resolve (obj, path, value) {
     path = path.replace(/^\./, '');           // strip a leading dot
     path = path.split('.');
   }
+  let settingAValue = 'undefined' !== typeof value
+  let isLastElement = false
 
   for (len = path.length; i < len; ++i) {
     k = path[i];
-    if ('undefined' !== typeof value && i === len - 1) {
-      // set the value
-      if (!obj) {
-        obj = {};
-      }
+    //console.log("k:", k, " i:", i)
+    isLastElement = i === len - 1
+    if (settingAValue && !obj) {
+      obj = {};
+    }
+    if (settingAValue && isLastElement) {
+      // set the value and we're done
       obj[k] = value;
       return value;
     } else {
-      if (k in obj) {
-        obj = obj[k];
+      if (settingAValue) {
+        obj[k] = {}
+        obj = obj[k]
       } else {
-        return;
+        if (k in obj) {
+          obj = obj[k];
+        } else {
+          return;
+        }
       }
     }
   }

@@ -1,10 +1,10 @@
 {
   "name": "obj-resolve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A convenience function to safely walk an object tree and get or set a field's value",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",

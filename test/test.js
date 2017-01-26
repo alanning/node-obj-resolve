@@ -117,4 +117,15 @@ describe("resolve", function () {
     expect(actual).to.have.members(expected);
   });
 
+  it('should set deep new field', function () {
+    var expected = "Mary",
+        actual
+
+    actual = resolve(obj, 'part4.friend.parent.name', "Mary")
+    expect(actual).to.equal(expected);
+
+    actual = resolve(obj, 'part4.friend.parent.name')
+    expect(actual).to.equal(expected);
+  });
+  
 });
