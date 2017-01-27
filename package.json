@@ -1,6 +1,6 @@
 {
   "name": "obj-resolve",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A convenience function to safely walk an object tree and get or set a field's value",
   "main": "index.js",
   "scripts": {

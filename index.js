@@ -17,7 +17,9 @@
  * @return {Object} target field or undefined if not found
  */
 module.exports = function resolve (obj, path, value) {
-  var i = 0,
+  var settingAValue = 'undefined' !== typeof value,
+      isLastElement = false,
+      i = 0,
       len,
       k;
 
@@ -26,13 +28,11 @@ module.exports = function resolve (obj, path, value) {
     path = path.replace(/^\./, '');           // strip a leading dot
     path = path.split('.');
   }
-  let settingAValue = 'undefined' !== typeof value
-  let isLastElement = false
 
   for (len = path.length; i < len; ++i) {
     k = path[i];
     //console.log("k:", k, " i:", i)
-    isLastElement = i === len - 1
+    isLastElement = i === len - 1;
     if (settingAValue && !obj) {
       obj = {};
     }
@@ -43,9 +43,9 @@ module.exports = function resolve (obj, path, value) {
     } else {
       if (settingAValue) {
         if ('object' !== typeof obj[k]) {
-          obj[k] = {}
+          obj[k] = {};
         }
-        obj = obj[k]
+        obj = obj[k];
       } else {
         if (k in obj) {
           obj = obj[k];
