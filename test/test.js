@@ -62,6 +62,19 @@ describe("resolve", function () {
     expect(actual).to.equal(expected);
   });
 
+  it('should return undefined if source is undefined/null', function () {
+    var expected = undefined,
+        actual
+
+    var empty
+    actual = resolve(empty, 'something.somewhere')
+    expect(actual).to.equal(expected);
+
+    empty = null
+    actual = resolve(empty, 'something.somewhere')
+    expect(actual).to.equal(expected);
+  });
+
   it('should return undefined for non-existant array entries', function () {
     var expected = undefined,
         actual

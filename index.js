@@ -23,6 +23,9 @@ module.exports = function resolve (obj, path, value) {
       len,
       k;
 
+  if (typeof obj !== 'object' || obj === null) {
+    return undefined
+  }
   if ('string' == typeof path) {
     path = path.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
     path = path.replace(/^\./, '');           // strip a leading dot
@@ -50,7 +53,7 @@ module.exports = function resolve (obj, path, value) {
         if (k in obj) {
           obj = obj[k];
         } else {
-          return;
+          return undefined;
         }
       }
     }
