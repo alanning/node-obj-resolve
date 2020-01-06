@@ -50,7 +50,7 @@ module.exports = function resolve (obj, path, value) {
         }
         obj = obj[k];
       } else {
-        if (k in obj) {
+        if (obj && k in obj) {
           obj = obj[k];
         } else {
           return undefined;

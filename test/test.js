@@ -87,7 +87,13 @@ describe("resolve", function () {
     var expected = undefined,
         actual
 
-    actual = resolve(obj, 'part5[0].name')
+    actual = resolve(obj, 'partX.name')
+    expect(actual).to.equal(expected);
+
+    actual = resolve({}, 'part1.nameX')
+    expect(actual).to.equal(expected);
+
+    actual = resolve({result: undefined, error: undefined}, 'result.failed')
     expect(actual).to.equal(expected);
   });
 
